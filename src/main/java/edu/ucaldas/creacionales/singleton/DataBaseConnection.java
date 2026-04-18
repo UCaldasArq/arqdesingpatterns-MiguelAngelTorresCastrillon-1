@@ -1,12 +1,26 @@
 package edu.ucaldas.creacionales.singleton;
 
-class DatabaseConnection {
-    private static DatabaseConnection instance;
+public class DataBaseConnection {
+    private static volatile DataBaseConnection instance;
 
-    private DatabaseConnection() {}
+    private DataBaseConnection() {}
 
-    public static DatabaseConnection getInstance() {
-        // TODO: thread-safe
-        return null;
+    public static DataBaseConnection getInstance() {
+        if (instance == null) {
+            synchronized (DataBaseConnection.class) {
+                if (instance == null) {
+                    instance = new DataBaseConnection();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void connect() {
+        System.out.println("Conectado a la base de datos");
+    }
+
+    public void disconnect() {
+        System.out.println("Desconectado de la base de datos");
     }
 }

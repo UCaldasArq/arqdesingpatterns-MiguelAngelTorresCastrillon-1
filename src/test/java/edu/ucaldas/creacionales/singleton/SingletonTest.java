@@ -7,8 +7,8 @@ public class SingletonTest {
 
     @Test
     void shouldReturnSameInstance() {
-        DatabaseConnection instance1 = DatabaseConnection.getInstance();
-        DatabaseConnection instance2 = DatabaseConnection.getInstance();
+        DataBaseConnection instance1 = DataBaseConnection.getInstance();
+        DataBaseConnection instance2 = DataBaseConnection.getInstance();
 
         assertSame(instance1, instance2);
     }

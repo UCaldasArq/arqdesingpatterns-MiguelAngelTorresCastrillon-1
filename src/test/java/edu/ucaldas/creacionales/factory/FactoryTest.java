@@ -7,8 +7,7 @@ public class FactoryTest {
 
     @Test
     void shouldCreateEmailNotification() {
-        NotificationFactory factory = new EmailFactory();
-        Notification notification = factory.createNotification();
+        Notification notification = NotificationFactory.createNotification("email");
 
         assertNotNull(notification);
         assertTrue(notification instanceof EmailNotification);
@@ -16,10 +15,24 @@ public class FactoryTest {
 
     @Test
     void shouldCreateSMSNotification() {
-        NotificationFactory factory = new SMSFactory();
-        Notification notification = factory.createNotification();
+        Notification notification = NotificationFactory.createNotification("sms");
 
         assertNotNull(notification);
         assertTrue(notification instanceof SMSNotification);
+    }
+
+    @Test
+    void shouldCreatePushNotification() {
+        Notification notification = NotificationFactory.createNotification("push");
+
+        assertNotNull(notification);
+        assertTrue(notification instanceof PushNotification);
+    }
+
+    @Test
+    void shouldThrowExceptionForUnknownType() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            NotificationFactory.createNotification("unknown");
+        });
     }
 }

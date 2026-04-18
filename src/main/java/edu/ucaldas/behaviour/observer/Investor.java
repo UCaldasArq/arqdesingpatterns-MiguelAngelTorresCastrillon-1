@@ -8,6 +8,6 @@ public class Investor implements Observer {
     }
 
     public void update(double price) {
-        // TODO
+        System.out.println("[Inversor " + name + "] Precio actualizado: $" + price);
     }
 }

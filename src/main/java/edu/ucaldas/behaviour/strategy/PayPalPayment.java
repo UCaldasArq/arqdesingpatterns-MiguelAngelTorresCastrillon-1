@@ -2,6 +2,6 @@ package edu.ucaldas.behaviour.strategy;
 
 public class PayPalPayment implements PaymentStrategy {
     public void pay(double amount) {
-        // TODO
+        System.out.println("Pagando $" + amount + " con PayPal");
     }
 }

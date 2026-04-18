@@ -6,12 +6,10 @@ public class CheeseDecorator extends ProductDecorator {
     }
 
     public double getPrice() {
-        // TODO
-        return 0;
+        return product.getPrice() + 2.50;
     }
 
     public String getDescription() {
-        // TODO
-        return null;
+        return product.getDescription() + " + Queso";
     }
 }

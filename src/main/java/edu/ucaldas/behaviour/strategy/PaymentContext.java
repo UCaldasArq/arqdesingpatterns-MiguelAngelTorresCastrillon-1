@@ -8,6 +8,6 @@ public class PaymentContext {
     }
 
     public void executePayment(double amount) {
-        // TODO
+        strategy.pay(amount);
     }
 }
